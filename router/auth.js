@@ -30,10 +30,10 @@ router.post('/submit', async (req, res) => {
 
 })
 
- Route.get('/get-allmatch', async(req,res)=>{
-     const user = await user.find()
-     res.status(200).send({data : user})
- })
+router.get('/get-allmatch', async (req, res) => {
+    const user = await user.find()
+    res.status(200).send({ data: user })
+})
 
 
 
