@@ -16,7 +16,7 @@ router.post('/submit', async (req, res) => {
     const { teamName, date, tossResult, matchResult, matchCost, opponentScore, opponentOver, annihilatorScore, annihilatorOver, playerName, category, runScored, ballPlayed, sixes, fours, overBowled, runGiven, wicketTaken } = req.body;
 
     if (!teamName || !date || !tossResult || !matchResult || !matchCost || !opponentScore || !opponentOver || !annihilatorScore || !annihilatorOver) {
-        return res.status(422).json({ error: "please fill all the fields sale" })
+        return res.status(422).json({ error: "please fill all the fields " })
     }
 
     else {
@@ -25,11 +25,17 @@ router.post('/submit', async (req, res) => {
 
         const vari = await user.save();
         console.log(vari);
-
         res.status(201).json({ data: vari })
     }
 
 })
+
+ Route.get('/get-allmatch', async(req,res)=>{
+     const user = await user.find()
+     res.status(200).send({data : user})
+ })
+
+
 
 //signIn
 // router.post('/signin', async (req, res) => {
